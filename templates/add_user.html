@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Creat a new User</h1>
+<form action="/users" method="POST">
+    <div>
+            <label for="name">User name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+    <input type="submit" value="Creat a new User">
+    </form>
+
+    <a href="/" class="back-link">← Zurück zur Startseite</a>
+
+{% endblock %}

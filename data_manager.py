@@ -14,7 +14,7 @@ class DataManager():
 
     def get_users(self):
 
-        return [row[0] for row in User.query.with_entities(User.name).all()]
+        return User.query.all()
 
     def get_movies(self, user_id):
 

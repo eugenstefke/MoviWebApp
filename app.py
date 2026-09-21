@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for 
 from data_manager import DataManager
 from models import db, Movie
 
@@ -14,35 +14,42 @@ db.init_app(app)  # Link the database and the app. This is the reason you need t
 data_manager = DataManager() # Create an object of your DataManager class
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     users = data_manager.get_users()
 
-@app.route('/users', methods=['POST'])
-def list_users():
+    return render_template('index.html', users=users)
+
+@app.route('/users', methods=['GET', 'POST'])
+def create_user():
 
     if request.method == 'POST':
         name = request.form.get("name")
         data_manager.add_user(name)
+        return render_template('add_user.html')
 
-    return render_template('home.html')  # Temporarily returning users as a string
+    return render_template('add_user.html')  # Temporarily returning users as a string
 
 @app.route('/users/<int:user_id>/movies', methods=['GET'])
-def list_movies(user_id):
+def get_movies(user_id):
 
     movies = data_manager.get_movies(user_id)
+
+    return render_template('get_movie.html', movies=movies, user_id=user_id)
 
 @app.route('/users/<int:user_id>/movies', methods=['POST'])
 def add_movie(user_id):
 
-    if request.method == 'POST':
-        movie_title = request.form.get("title")
+    movie_title = request.form.get("title")
 
-        title = data_manager.add_movie(movie_title)
-        if title:
-            data_manager.connect_userid_with_movieid(user_id, title)
-        else:
-            pass # muss noch überlegen was passiert, bei else
+    title = data_manager.add_movie(movie_title)
+    if title:
+        data_manager.connect_userid_with_movieid(user_id, title)
+    else:
+        pass # muss noch überlegen was passiert, bei else
+
+    return render_template('add_movie.html', user_id=user_id)
+
 
 @app.route('/users/<int:user_id>/movies/<int:movie_id>/update', methods=['POST'])
 def update_movie_title(user_id, movie_id):
