@@ -1,3 +1,7 @@
+# ignor .env and app.db
+.env
+data/app.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
