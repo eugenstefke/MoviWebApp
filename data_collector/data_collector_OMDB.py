@@ -4,7 +4,13 @@ from dotenv import load_dotenv
 
 
 def retrieve_data(title):
-    """Retrieve the movie data."""
+    """
+    Loads film data form the OMDBAPI
+    Parameters:
+        t = title
+        apikey = personal API key (stored in .env)
+    Returns key/value pairs from film details
+    """
     try:
         load_dotenv()
         api_key = os.getenv("API_KEY")
