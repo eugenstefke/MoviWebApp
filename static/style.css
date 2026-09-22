@@ -1,0 +1,223 @@
+/* ==========================================================
+   MovieApp – Dark Gold/Red Theme
+   ========================================================== */
+
+:root {
+    --bg-black: #0b0b0b;
+    --bg-panel: #1c1c1c;      /* Header/Footer - etwas helleres Schwarz */
+    --bg-card: #161616;
+    --border-gold: #b8912f;
+    --text-gold: #e3b23c;
+    --text-red: #c62828;
+    --btn-bg: #8c1c1c;
+    --btn-bg-hover: #a92323;
+    --btn-text: #e3b23c;
+    --input-bg: #ffffff;
+    --input-text: #1a1a1a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-black);
+    color: var(--text-gold);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Kopf- und Fußbereich */
+header,
+footer {
+    background-color: var(--bg-panel);
+    color: var(--text-gold);
+    padding: 1.2rem 2rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    color: var(--text-red);
+    font-size: 0.9rem;
+}
+
+/* Hauptinhalt */
+.container,
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--text-red);
+    font-weight: 700;
+}
+
+/* Logo-Titel im Header - bewusst kleiner als normale Seitenüberschriften */
+.site-title {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+/* Benutzer-/Filmliste als Karten */
+ul {
+    list-style: none;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+li,
+.user-entry,
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    min-width: 220px;
+}
+
+li h3,
+.card h3 {
+    margin-top: 0;
+    color: var(--text-gold);
+}
+
+/* Links, die wie Buttons aussehen sollen */
+a {
+    color: var(--text-gold);
+    text-decoration: none;
+}
+
+a.btn,
+li a {
+    display: inline-block;
+    margin-top: 0.6rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+a.btn:hover,
+li a:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+/* Formulare */
+form {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 600px;
+}
+
+form h2, form h3 {
+    width: 100%;
+}
+
+input[type="text"] {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid var(--text-red);
+}
+
+input[type="text"]::placeholder {
+    color: var(--input-text);
+    opacity: 0.35;
+}
+
+input[type="submit"],
+button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+/* Filmposter */
+img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+}
+
+/* Filmkarten nebeneinander im Grid */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.movie-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin: 0;
+}
+
+.movie-card p {
+    margin: 0;
+}
+
+.movie-card .update-form {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: none;
+}
+
+.movie-card .update-form input[type="text"] {
+    min-width: 0;
+    flex: 1;
+}
+
+.delete-btn {
+    align-self: flex-start;
+}

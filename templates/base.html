@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8"> <title>Movies</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
+<header><a href="{{ url_for('home') }}" class="site-title"><h1>🎬 MovieApp</h1></a></header>
+
 <main class="container">
         {% block content %}{% endblock %}
 </main>

@@ -21,7 +21,7 @@ class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String, nullable=False)
     director = db.Column(db.String, nullable=False)
-    publication_year = db.Column(db.Integer, nullable=False)
+    publication_year = db.Column(db.Integer, nullable=True)
     poster_url = db.Column(db.String)
 
 class UserMovie(db.Model):
