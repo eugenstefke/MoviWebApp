@@ -26,7 +26,7 @@
 <form action="{{ url_for('add_movie', user_id=user_id) }}" method="post">
     <h3>Add New Movie</h3>
     <input type="text" name="title" placeholder="Movie title" required>
-    <input type="text" name="publication_year" placeholder="Year (optional)">
+    <input type="text" name="publication_year" placeholder="Year" required>
     <input type="submit" value="Add Movie">
 {% if message %}
 <p>{{ message }}</p>

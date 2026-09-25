@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-def retrieve_data(title):
+def retrieve_data(title, publication_year):
     """
     Loads film data form the OMDBAPI
     Parameters:
@@ -18,6 +18,7 @@ def retrieve_data(title):
         URL = "http://www.omdbapi.com/"
         PARAMETERS = {
             "t": title,
+            "y": publication_year,
             "apikey": api_key
         }
 

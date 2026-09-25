@@ -37,7 +37,7 @@ class DataManager():
         """
         return (Movie.query.join(UserMovie, Movie.id == UserMovie.movie_id).filter(UserMovie.user_id == user_id).all())
 
-    def add_movie(self, title):
+    def add_movie(self, title, publication_year):
         """
         Calls the `retrieve_data` function of `data_collector_OMDB`, passing the user’s input title
 
@@ -48,7 +48,7 @@ class DataManager():
         if not title:
             return None
 
-        movie_omdb_info = retrieve_data(title)
+        movie_omdb_info = retrieve_data(title, publication_year)
         if movie_omdb_info ["Response"] != "True":
             return None
         try:

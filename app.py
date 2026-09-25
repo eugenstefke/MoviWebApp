@@ -84,8 +84,9 @@ def add_movie(user_id):
         return render_template('404.html', message=f"User {user_id} not found"), 404
 
     movie_title = request.form.get("title")
+    publication_year = request.form.get("publication_year")
 
-    title = data_manager.add_movie(movie_title)
+    title = data_manager.add_movie(movie_title, publication_year)
     if title:
         message = f"{movie_title}, successfully added"
         error = data_manager.connect_userid_with_movieid(user_id, title)
